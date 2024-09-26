@@ -1,6 +1,6 @@
 // app.js
 function sayHello() {
-  return 'Hola Munda';
+  return 'Hola Mundo';
 }
 
 module.exports = sayHello;
