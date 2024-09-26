@@ -1,0 +1,31 @@
+name: Ejecutar prueba unitaria
+
+# Ejecutar el flujo de trabajo en cada push a cualquier rama
+on:
+  push:
+    branches:
+      - main
+      - desarrollo
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Chequear el código
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Configurar la versión de Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # O la versión que prefieras usar
+
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Ejecutar las pruebas
+      - name: Run tests
+        run: npm test
